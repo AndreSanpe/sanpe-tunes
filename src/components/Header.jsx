@@ -5,7 +5,6 @@ class Header extends React.Component {
     return (
       <header>
         <h1>
-          {' '}
           <strong> Trybe</strong>
           tunes
         </h1>
