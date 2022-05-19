@@ -24,13 +24,12 @@ class Login extends React.Component {
   };
 
   btnLogin = () => {
-    const { name, loading } = this.state;
+    const { name } = this.state;
     const userName = { name };
     const { history } = this.props;
     this.setState({ loading: true }, async () => {
       await createUser(userName);
       this.setState({ loading: false });
-      console.log(loading);
       history.push('/search');
     });
   };
