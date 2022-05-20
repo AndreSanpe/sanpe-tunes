@@ -14,19 +14,15 @@ class Album extends React.Component {
   }
 
   requestMusics = async () => {
-    const { musicsList } = this.state;
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
-    // const musicId = Object.values(params);
     const musics = await getMusics(id);
     this.setState({ musicsList: musics });
-    console.log(musicsList);
   };
 
   render() {
     const { musicsList } = this.state;
-    // console.log(musicsList && musicsList[1].artistId);
     return (
       <div data-testid="page-album">
         <Header />
@@ -35,6 +31,7 @@ class Album extends React.Component {
           {musicsList && (
             <div>
               <h3 data-testid="album-name">{musicsList[0].collectionName}</h3>
+              <img src={ musicsList[0].artworkUrl100 } alt={ musicsList[0].artistName } />
               <h3 data-testid="artist-name">{musicsList[0].artistName}</h3>
             </div>
           )}
@@ -44,12 +41,11 @@ class Album extends React.Component {
               key={ music.trackId }
               trackName={ music.trackName }
               previewUrl={ music.previewUrl }
+              trackId={ music.trackId }
+              musicsList={ musicsList }
             />
           ))}
-          {/* {musicsList && <MusicCard
-            trackName={ musicsList[1].trackName }
-            previewUrl={ musicsList[1].previewUrl }
-          />} */}
+
         </div>
       </div>
     );
@@ -58,7 +54,9 @@ class Album extends React.Component {
 
 Album.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.shape({}),
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
   }).isRequired,
 };
 
