@@ -30,7 +30,7 @@ class Header extends React.Component {
                 <strong> Trybe</strong>
                 tunes
               </h1>
-              <h2 data-testid="header-user-name">{`Usuário: ${user}`}</h2>
+              <h2 data-testid="header-user-name">{`Olá ${user}!`}</h2>
             </div>
             <div>
               <Link to="/search" data-testid="link-to-search">Search</Link>
