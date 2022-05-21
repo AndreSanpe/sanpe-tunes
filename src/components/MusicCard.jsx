@@ -1,28 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
 state = {
   loading: false,
-  favoritoArray: [],
+  checkedBox: false,
+}
+
+async componentDidMount() {
+  const getSongs = await getFavoriteSongs();
+  this.setState({ checkedBox: this.checkedBox(getSongs) });
 }
 
   handleCheckbox = async ({ target }) => {
-    const { musicsList } = this.props;
-    // console.log(musicsList);
-    const { favoritoArray } = this.state;
     this.setState({ loading: true });
+    const { musicsList } = this.props;
+    const { checked } = target;
     const musicFilter = musicsList.filter((item) => item.trackName === target.name)[0];
-    favoritoArray.push(musicFilter);
-    await addSong(musicFilter);
-    this.setState({ loading: false });
+    if (checked) {
+      await addSong(musicFilter);
+      this.setState({ loading: false, checkedBox: checked });
+      return;
+    }
+    await removeSong(musicFilter);
+    this.setState({ loading: false, checkedBox: checked });
   }
 
-  checkedBox = (trackId) => {
-    const { favoritoArray } = this.state;
-    return favoritoArray.some((item) => item.trackId === trackId);
+  // I'm using list to validate the list of objects;
+  checkedBox = (list) => {
+    const { trackId } = this.props;
+    return list.some((item) => item.trackId === trackId);
   }
 
   render() {
@@ -31,7 +40,7 @@ state = {
       previewUrl,
       trackId,
     } = this.props;
-    const { loading } = this.state;
+    const { loading, checkedBox } = this.state;
     return (
       <div>
         <p>{ trackName }</p>
@@ -49,7 +58,7 @@ state = {
               data-testid={ `checkbox-music-${trackId}` }
               onChange={ this.handleCheckbox }
               name={ trackName }
-              checked={ this.checkedBox(trackId) }
+              checked={ checkedBox }
             />
           </label>
         )}
@@ -70,3 +79,14 @@ MusicCard.propTypes = {
 };
 
 export default MusicCard;
+
+// MusicCard.propTypes = {
+//   trackName: PropTypes.string.isRequired,
+//   previewUrl: PropTypes.string.isRequired,
+//   trackId: PropTypes.number.isRequired,
+//   musicaCompleta: PropTypes.shape({}).isRequired,
+//   atualizarLista: PropTypes.func,
+// };
+// MusicCard.defaultProps = {
+//   atualizarLista: () => {},
+// };
