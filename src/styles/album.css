@@ -1,0 +1,61 @@
+  #album{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    gap: 1em;
+    align-items: space-around;
+    text-align: center;
+    background-color:rgba(232, 233, 234, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 40px;
+  }
+  #page-album{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-top: 2%;
+  }
+  #musics-card{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    padding-left: 1em;
+  }
+
+  #album-title{
+    text-align: left;
+    padding-left: 300px;
+    padding-top: 20px;
+    margin-top: 0.5em;
+  }
+  #label-favorite{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    height: 150px;
+    width: 300px;
+    background-color:rgba(242, 243, 244, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  #label-favorite:hover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    height: 150px;
+    width: 300px;
+    background-color:rgba(242, 243, 244, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    padding: 20px;
+    transform: translateY(-20px);
+  }
+
+

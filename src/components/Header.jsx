@@ -25,14 +25,21 @@ class Header extends React.Component {
       <div>
         {!waiting ? (
           <header data-testid="header-component">
-            <div>
+            <div id="header-component">
               <h1>
                 <strong> Trybe</strong>
-                tunes
+                <br />
+                {' '}
+                &emsp; tunes
               </h1>
-              <h2 data-testid="header-user-name">{`Olá ${user}!`}</h2>
+              <div id="log-out">
+                <h2 data-testid="header-user-name">{`Olá ${user}!`}</h2>
+                <Link to="/" id="header-user">
+                  <i className="fa-solid fa-arrow-right-from-bracket" />
+                </Link>
+              </div>
             </div>
-            <div>
+            <div id="header-links">
               <Link to="/search" data-testid="link-to-search">Search</Link>
               <Link to="/favorites" data-testid="link-to-favorites">Favorito</Link>
               <Link to="/profile" data-testid="link-to-profile">Profile</Link>

@@ -42,28 +42,29 @@ async componentDidMount() {
     } = this.props;
     const { loading, checkedBox } = this.state;
     return (
-      <div>
-        <p>{ trackName }</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          <code>audio</code>
-        </audio>
+      <div id="musicCard">
+
         {loading ? <Loading /> : (
-          <label htmlFor={ `checkbox-music-${trackId}` }>
-            Favorita
-            <input
-              id={ `checkbox-music-${trackId}` }
-              type="checkbox"
-              data-testid={ `checkbox-music-${trackId}` }
-              onChange={ this.handleCheckbox }
-              name={ trackName }
-              checked={ checkedBox }
-            />
+          <label htmlFor={ `checkbox-music-${trackId}` } id="label-favorite">
+            <p>{ trackName }</p>
+            <audio data-testid="audio-component" src={ previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              <code>audio</code>
+            </audio>
+            <div id="favate-input">
+              Favorita&emsp;
+              <input
+                id={ `checkbox-music-${trackId}` }
+                type="checkbox"
+                data-testid={ `checkbox-music-${trackId}` }
+                onChange={ this.handleCheckbox }
+                name={ trackName }
+                checked={ checkedBox }
+              />
+            </div>
           </label>
         )}
-
-        <hr />
       </div>
     );
   }

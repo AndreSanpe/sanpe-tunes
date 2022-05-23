@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 import Header from '../components/Header';
@@ -38,15 +37,13 @@ state = {
   render() {
     const {
       album, buttonStatus, loading, artist, artistNameAlbum, searchAlbum } = this.state;
-    // const {
-    //   collectionName, artistName, artworkUrl100 } = this.props;
 
     return (
       <div>
         {!loading ? (
           <div data-testid="page-search">
             <Header />
-            <form>
+            <form className="search-form">
               <label htmlFor="user-input">
                 <input
                   type="text"
@@ -62,6 +59,7 @@ state = {
                 type="button"
                 disabled={ buttonStatus }
                 onClick={ this.searchArtistBtn }
+                className="btn-search"
               >
                 Pesquisar
 
@@ -72,13 +70,14 @@ state = {
           <div>
             {(searchAlbum.length === 0) ? <h1>Nenhum álbum foi encontrado</h1> : (
               <h2>
+                <br />
                 {' '}
                 Resultado de álbuns de:
                 {' '}
                 {artistNameAlbum}
               </h2>) }
 
-            <div>
+            <div id="search-artist">
               {searchAlbum.map((item) => (
                 <Link
                   data-testid={ `link-to-album-${item.collectionId}` }
@@ -100,11 +99,5 @@ state = {
     );
   }
 }
-
-// Search.propTypes = {
-//   collectionName: PropTypes.string.isRequired,
-//   artistName: PropTypes.string.isRequired,
-//   artworkUrl100: PropTypes.string.isRequired,
-// };
 
 export default Search;

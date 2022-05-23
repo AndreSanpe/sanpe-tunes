@@ -1,0 +1,90 @@
+.page-main-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  #search-artist{
+    height: 100%;
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content:space-around;
+    text-align: center;
+    gap:2em;
+    padding: 50px;
+  }
+  #search-artist a{
+  text-decoration: none;
+  color: grey;
+  }
+
+  #search-artist div h3{
+    text-decoration: none;
+    color: rgba(56, 56, 56, 0.779);
+    font-weight: bold;
+    }
+
+  #card{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    gap: 0.5em;
+    align-content: center;  
+    border: none;
+    background-color:rgba(232, 233, 234, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  #card:hover{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    gap: 0.5em;
+    align-content: center;  
+    border: none;
+    background-color:rgba(232, 233, 234, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transform: translateY(-20px);
+  }
+
+  .btn-Login{
+    height: 30px;
+    width: 70px;
+    margin-left: 40%;
+    border-radius: 8px;
+  }
+  #login{
+    border: none;
+    background-color:rgba(222, 223, 224, 0.342);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  h2{
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;
+  }
+  #img-card{
+    height: 200px;
+  }
+  #img-card img{
+    height: 150px;
+  }
+#card h3{
+/* background-color: green; */
+height:100%;
+overflow: scroll;
+}

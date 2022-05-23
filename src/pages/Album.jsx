@@ -26,25 +26,31 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <h1>Album</h1>
-        <div>
-          {musicsList && (
-            <div>
-              <h3 data-testid="album-name">{musicsList[0].collectionName}</h3>
-              <img src={ musicsList[0].artworkUrl100 } alt={ musicsList[0].artistName } />
-              <h3 data-testid="artist-name">{musicsList[0].artistName}</h3>
-            </div>
-          )}
-
-          {musicsList && musicsList.filter((item) => item.trackId).map((music) => (
-            <MusicCard
-              key={ music.trackId }
-              trackName={ music.trackName }
-              previewUrl={ music.previewUrl }
-              trackId={ music.trackId }
-              musicsList={ musicsList }
-            />
-          ))}
+        <h1 id="album-title">Album</h1>
+        <div id="page-album">
+          <div>
+            {musicsList && (
+              <div id="album">
+                <h3 data-testid="album-name">{musicsList[0].collectionName}</h3>
+                <img
+                  src={ musicsList[0].artworkUrl100 }
+                  alt={ musicsList[0].artistName }
+                />
+                <h3 data-testid="artist-name">{musicsList[0].artistName}</h3>
+              </div>
+            )}
+          </div>
+          <div id="musics-card">
+            {musicsList && musicsList.filter((item) => item.trackId).map((music) => (
+              <MusicCard
+                key={ music.trackId }
+                trackName={ music.trackName }
+                previewUrl={ music.previewUrl }
+                trackId={ music.trackId }
+                musicsList={ musicsList }
+              />
+            ))}
+          </div>
 
         </div>
       </div>

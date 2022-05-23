@@ -27,16 +27,18 @@ render() {
   return (
     <div data-testid="page-favorites">
       <Header />
-      {musicsList && musicsList.map((music) => (
-        <MusicCard
-          key={ music.trackId }
-          trackName={ music.trackName }
-          previewUrl={ music.previewUrl }
-          trackId={ music.trackId }
-          musicsList={ musicsList }
+      <div id="page-favorites">
+        {musicsList && musicsList.map((music) => (
+          <MusicCard
+            key={ music.trackId }
+            trackName={ music.trackName }
+            previewUrl={ music.previewUrl }
+            trackId={ music.trackId }
+            musicsList={ musicsList }
 
-        />
-      ))}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -37,14 +37,17 @@ class Login extends React.Component {
   render() {
     const { disabled, name, loading } = this.state;
     return (
-      <div>
+      <div className="page-main-login">
         { !loading
           ? (
-            <div data-testid="page-login">
+            <div data-testid="page-login" className="page-login">
               <h1>Login</h1>
+              {' '}
+              <i className="fa-regular fa-circle-play" />
+              {' '}
               <form className="form-login">
                 <label htmlFor="login">
-                  Nome:
+                  Nome:&emsp;
                   <input
                     type="text"
                     id="login"
@@ -61,8 +64,10 @@ class Login extends React.Component {
                   onClick={ this.btnLogin }
                 >
                   Entrar
+
                 </button>
               </form>
+
             </div>)
           : (<Loading />)}
       </div>
