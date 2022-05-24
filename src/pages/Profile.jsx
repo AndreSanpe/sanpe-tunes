@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 
 class Profile extends React.Component {
@@ -19,10 +21,30 @@ class Profile extends React.Component {
   };
 
   render() {
+    const { user, waiting } = this.state;
     return (
       <div data-testid="page-profile">
         <Header />
-        <h1>Profile</h1>
+        {waiting ? <Loading /> : (
+          <div>
+            <div>
+              <img
+                data-testid="profile-image"
+                src={ user.image }
+                alt={ user.name }
+                // alt={ `Foto do perfil de ${user.name}` }
+              />
+              <Link to="/profile/edit">Editar perfil</Link>
+            </div>
+            {/* <h4>Nome</h4> */}
+            <h1>{user.name}</h1>
+            <h1>{user.name}</h1>
+            {/* <h4>E-mail</h4> */}
+            <p>{user.email}</p>
+            {/* <h4>Descrição</h4> */}
+            <p>{user.description}</p>
+          </div>
+        )}
       </div>
     );
   }
