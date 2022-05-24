@@ -1,7 +1,7 @@
   #album{
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     width: 300px;
     gap: 1em;
     align-items: space-around;
@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
-    height: 150px;
+    height: 170px;
     width: 300px;
     background-color:rgba(242, 243, 244, 0.342);
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
@@ -49,7 +49,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
-    height: 150px;
+    height: 170px;
     width: 300px;
     background-color:rgba(242, 243, 244, 0.342);
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;

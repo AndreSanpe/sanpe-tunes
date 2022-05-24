@@ -31,10 +31,11 @@
   #card{
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 400px;
     width: 300px;
-    gap: 0.5em;
+    gap: 1em;
     align-content: center;  
+    justify-content: space-between;
     border: none;
     background-color:rgba(232, 233, 234, 0.342);
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
@@ -46,7 +47,7 @@
   #card:hover{
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 400px;
     width: 300px;
     gap: 0.5em;
     align-content: center;  
