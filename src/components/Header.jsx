@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 
@@ -7,10 +8,45 @@ class Header extends React.Component {
   state = {
     waiting: false,
     user: '',
+    profile: '',
+    search: '',
+    favorito: '',
   };
 
   componentDidMount() {
     this.loadingHeader();
+    this.getHistory();
+  }
+
+  getHistory = () => {
+    // const { profile, search, favorito } = this.state;
+    // console.log(search);
+    const objHistory = createBrowserHistory();
+    const { location } = objHistory;
+    const { pathname } = location;
+    const selectd = 'header-class';
+    const unselectd = 'header-without-class';
+    if (pathname === '/search') {
+      this.setState({
+        search: selectd,
+        profile: unselectd,
+        favorito: unselectd,
+      });
+    } if (pathname === '/profile') {
+      this.setState({
+        search: unselectd,
+        profile: selectd,
+        favorito: unselectd,
+      });
+    }
+    if (pathname === '/favorites') {
+      this.setState({
+        search: unselectd,
+        profile: unselectd,
+        favorito: selectd,
+      });
+    }
+    console.log(pathname);
   }
 
   loadingHeader = async () => {
@@ -20,7 +56,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { waiting, user } = this.state;
+    const { waiting, user, search, profile, favorito } = this.state;
     return (
       <div>
         {!waiting ? (
@@ -40,9 +76,30 @@ class Header extends React.Component {
               </div>
             </div>
             <div id="header-links">
-              <Link to="/search" data-testid="link-to-search">Search</Link>
-              <Link to="/favorites" data-testid="link-to-favorites">Favorito</Link>
-              <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+              <Link
+                className={ search }
+                to="/search"
+                data-testid="link-to-search"
+              >
+                Search
+
+              </Link>
+              <Link
+                className={ favorito }
+                to="/favorites"
+                data-testid="link-to-favorites"
+              >
+                Favorito
+
+              </Link>
+              <Link
+                className={ profile }
+                to="/profile"
+                data-testid="link-to-profile"
+              >
+                Profile
+
+              </Link>
             </div>
           </header>
         ) : (

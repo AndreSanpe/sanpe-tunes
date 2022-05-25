@@ -8,24 +8,25 @@
     background-color: rgb(11, 100, 233);
     text-shadow: rgba(244, 241, 241, 0.3) 0px 2px 10px;
     color: white;
+    box-shadow: 0 10px black;
   }
   #header-links{
     display: flex;
     gap: 0.5em;
     justify-content: space-around;  
     background-color: rgb(11, 100, 233);
-    padding-bottom: 30px;
-
+    flex-grow: 1;
   }
   #header-links a{
     display: flex;
     text-decoration: none;
     color: white;
     text-shadow: rgba(244, 241, 241, 0.3) 0px 2px 10px;
-
     text-size-adjust: 30px;    
     font-size: 40px;
     font-weight: bold;
+    justify-content:center;  
+    align-items: center;
     }  
   #header-links a:hover{
     text-decoration: none;
@@ -34,15 +35,10 @@
     font-size: 40px;
     font-weight: bold;
     text-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;
+    justify-content:center;  
+    align-items: center;
   }
-  #header-links a:focus{
-    text-decoration: none;
-    color: rgba(104, 237, 230, 0.819);
-    text-size-adjust: 30px;    
-    font-size: 40px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;
-  }
+
   #header-user{
   display: flex;
   text-decoration: none;
@@ -60,5 +56,12 @@
   display: flex;
   gap: 1em;
   align-items: center;
+}
+.header-class{
+  background-color: rgba(81, 126, 193, 0.937);
+  width:10%;
+  height: 70px;
+  margin-bottom:0px;
+border-radius: 30px;
 }
 

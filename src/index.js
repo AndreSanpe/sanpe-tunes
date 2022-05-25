@@ -7,6 +7,8 @@ import './styles/search.css'
 import './styles/cards.css'
 import './styles/album.css'
 import './styles/favorite.css'
+import './styles/profile.css'
+import './styles/edit.css'
 import App from './App';
 
 ReactDOM.render(

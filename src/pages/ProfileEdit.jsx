@@ -23,7 +23,11 @@ class ProfileEdit extends React.Component {
   loadingHeader = async () => {
     this.setState({ waiting: true });
     const userName = await getUser();
-    this.setState({ waiting: false, user: userName });
+    this.setState({ waiting: false,
+      name: userName.name,
+      email: userName.email,
+      description: userName.description,
+      image: userName.image });
   };
 
   saveButton = () => {
@@ -35,7 +39,7 @@ class ProfileEdit extends React.Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value }, this.saveButton);
+    this.setState({ [name]: value });
     const { description, image, email } = this.state;
     if (name && description && image && email) {
       this.setState({ disabled: false });
@@ -45,7 +49,8 @@ class ProfileEdit extends React.Component {
   render() {
     const {
       user,
-      waiting, name, description, image, email, disabled, waitingSaved } = this.state;
+      waiting,
+      name, description, image, email, disabled, waitingSaved } = this.state;
     if (waitingSaved) {
       return <Loading />;
     }
@@ -53,72 +58,78 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile">
         <Header />
         {waiting ? <Loading /> : (
-          <form>
-            <label htmlFor="edit-input-name">
-              Nome
-              <input
-                data-testid="edit-input-name"
-                id="edit-input-name"
-                type="text"
-                name="name"
-                placeholder={ user.name }
-                onChange={ this.handleChange }
-                value={ name }
-              />
-            </label>
-            <label htmlFor="edit-input-email">
-              Email
-              <input
-                data-testid="edit-input-email"
-                id="edit-input-email"
-                type="email"
-                name="email"
-                placeholder={ user.email }
-                onChange={ this.handleChange }
-                value={ email }
+          <section id="profile-edit-page">
+            <form id="profile-form-edit">
+              <div>
+                <label id="edit-img" htmlFor="edit-input-image">
+                  Foto:&emsp;
+                  <input
+                    data-testid="edit-input-image"
+                    id="edit-input-image"
+                    type="text"
+                    name="image"
+                    placeholder={ user.image }
+                    onChange={ this.handleChange }
+                    value={ image }
+                  />
+                  <img
+                    alt={ `foto de perfil ${name}` }
+                    src={ image }
+                  />
+                </label>
+              </div>
+              <label htmlFor="edit-input-name">
+                Nome:&emsp;
+                <input
+                  data-testid="edit-input-name"
+                  id="edit-input-name"
+                  type="text"
+                  name="name"
+                  placeholder={ user.name }
+                  onChange={ this.handleChange }
+                  value={ name }
+                />
+              </label>
+              <label htmlFor="edit-input-email">
+                Email:&emsp;
+                <input
+                  data-testid="edit-input-email"
+                  id="edit-input-email"
+                  type="email"
+                  name="email"
+                  placeholder={ user.email }
+                  onChange={ this.handleChange }
+                  value={ email }
 
-              />
-            </label>
-            <label htmlFor="edit-input-description">
-              Descrição
-              <input
-                data-testid="edit-input-description"
-                id="edit-input-email"
-                type="textarea"
-                name="description"
-                placeholder={ user.description }
-                onChange={ this.handleChange }
-                value={ description }
+                />
+              </label>
+              <label htmlFor="edit-input-description">
+                Descrição:&emsp;
+                <textarea
+                  data-testid="edit-input-description"
+                  id="edit-input-email"
+                  type="textarea"
+                  name="description"
+                  placeholder={ user.description }
+                  onChange={ this.handleChange }
+                  value={ description }
 
-              />
-            </label>
-            <label htmlFor="edit-input-image">
-              Foto
-              <input
-                data-testid="edit-input-image"
-                id="edit-input-image"
-                type="text"
-                name="image"
-                placeholder={ user.image }
-                onChange={ this.handleChange }
-                value={ image }
-              />
-              <img
-                alt={ `foto de perfil ${name}` }
-                src={ image }
-              />
-            </label>
-            <button
-              data-testid="edit-button-save"
-              id="edit-button-save"
-              name="saveBtn"
-              type="button"
-              onClick={ this.saveButton }
-              disabled={ disabled }
-            >
-              Salvar
-            </button>
-          </form>
+                />
+              </label>
+              <Link to="/profile">
+                <button
+                  data-testid="edit-button-save"
+                  id="edit-button-save"
+                  name="saveBtn"
+                  type="button"
+                  onClick={ this.saveButton }
+                  disabled={ disabled }
+                >
+                  Salvar
+                </button>
+              </Link>
+            </form>
+          </section>
         )}
       </div>
     );
