@@ -19,8 +19,6 @@ class Header extends React.Component {
   }
 
   getHistory = () => {
-    // const { profile, search, favorito } = this.state;
-    // console.log(search);
     const objHistory = createBrowserHistory();
     const { location } = objHistory;
     const { pathname } = location;
@@ -46,7 +44,6 @@ class Header extends React.Component {
         favorito: selectd,
       });
     }
-    console.log(pathname);
   }
 
   loadingHeader = async () => {
