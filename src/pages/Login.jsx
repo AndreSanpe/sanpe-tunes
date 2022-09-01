@@ -22,7 +22,7 @@ class Login extends React.Component {
       this.setState({ disabled: true });
     }
   };
-
+// traing use git
   btnLogin = () => {
     const { name } = this.state;
     const userName = { name };
