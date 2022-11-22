@@ -60,7 +60,7 @@ class Header extends React.Component {
           <header data-testid="header-component">
             <div id="header-component">
               <h1>
-                <strong> Trybe</strong>
+                <strong> SanPe </strong>
                 <br />
                 {' '}
                 &emsp; tunes
