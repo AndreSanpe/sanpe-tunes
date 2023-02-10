@@ -9,10 +9,13 @@ https://user-images.githubusercontent.com/59103410/203344237-a10ffd6e-6544-4efd-
 - High-quality recordings and production
 - Easy to access and stream online
 
+
 ## Getting Started
-1. Clone or download the repository to your local machine.
-2. Open the folder and navigate to the desired song.
-3. Listen to the song either through the file directly or by streaming it on the web.
+1. Clone or download the repository to your local machine by clicking the green "Clone or download" button and selecting "Download ZIP".
+2. Extract the ZIP file to your desired location on your computer.
+3. Open the folder and navigate to the desired song.
+4. Listen to the song either through the file directly or by streaming it on the web using a media player of your choice.
+
 
 ## Contributing
 If you have any feedback or suggestions, please create an issue in the repository. Your contributions are always welcome.
