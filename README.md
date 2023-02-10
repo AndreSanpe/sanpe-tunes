@@ -28,4 +28,4 @@ If you would like to contribute to the development of Sanpe Tunes, you are more 
 
 ## License
 
-Sanpe Tunes is licensed under the [MIT License](https://github.com/AndreSanpe/sanpe-tunes/blob/master/LICENSE).
+Sanpe Tunes is licensed under the [Trybe](https://www.betrybe.com/).
